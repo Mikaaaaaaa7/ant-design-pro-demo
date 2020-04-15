@@ -6,7 +6,7 @@
         <SiderMenu></SiderMenu>
       </a-layout-sider>
       <a-layout>
-        <a-layout-header style="background: #fff; padding: 0">
+        <a-layout-header class="layout-header-style">
           <a-icon
             class="trigger"
             :type="collapsed ? 'menu-unfold' : 'menu-fold'"
@@ -22,6 +22,7 @@
         </a-layout-footer>
       </a-layout>
     </a-layout>
+    <SettingDrawer></SettingDrawer>
   </div>
 </template>
 
@@ -29,13 +30,15 @@
 import Header from './Header';
 import Footer from './Footer';
 import SiderMenu from './SiderMenu';
+import SettingDrawer from '../components/SettingDrawer';
 
 export default {
   name: 'BasicLayout',
   components: {
     Footer,
     Header,
-    SiderMenu
+    SiderMenu,
+    SettingDrawer
   },
   data() {
     return {
@@ -46,10 +49,15 @@ export default {
 </script>
 
 <style scoped>
+.layout-header-style {
+  background: #fff;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .trigger {
   font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
 }
